@@ -44,7 +44,7 @@ public class Main {
 
         System.out.println("********** task11: **********");
         // дни недели 0..6
-        new One().task11(2);
+        new One().task11(5);
         System.out.println(" ");
     }
 }
