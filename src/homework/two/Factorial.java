@@ -2,7 +2,7 @@ package homework.two;
 
 public class Factorial {
 
-    public Long factorial(Integer i){
+    public Long calculateFromCicle(Integer i){
         if((i == null)||(i < 1)||(i > 10)){
             System.out.println("введено некорректное число");
             return null;
