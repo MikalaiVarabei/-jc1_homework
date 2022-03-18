@@ -11,13 +11,11 @@ public class Factorial {
         if(i == 0) return 1L;
 
         int n = 1;
-        int j = i;
         long fl = 1L;
 
-        while (j > 0) {
+        while (n <= i) {
             fl = fl * n;
             n++;
-            j--;
         }
         return fl;
     }
