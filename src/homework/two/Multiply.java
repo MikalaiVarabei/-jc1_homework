@@ -15,11 +15,11 @@ public class Multiply {
         BigInteger buff;
         BigInteger res = BigInteger.valueOf(n);
 
-        while(n < b) {
+         do{
             n++;
             buff = BigInteger.valueOf(n);
             res = res.multiply(buff);
-        }
+        }while(n < b);
         return res;
     }
 }
