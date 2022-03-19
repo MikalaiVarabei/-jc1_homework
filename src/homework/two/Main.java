@@ -15,6 +15,8 @@ public class Main {
         Digits sm = new Digits();
         System.out.println(sm.calcSumOfDigit(7_893_823_445L));
 
+        System.out.println("********** task17: **********");
+        System.out.println(sm.separationDigits(-11222333444555L));
 
     }
 
