@@ -2,6 +2,10 @@ package homework.two;
 
 public class Digits {
 
+    public Integer min = 50;
+    public Integer max = 70;
+
+    //возвращает сумму цифр
     public Integer calcSumOfDigit(Long i){
         if(i == null){
             System.out.println("введено некорректное число");
@@ -27,6 +31,36 @@ public class Digits {
         }
 
         return sum;
+    }
+
+    public StringBuilder separationDigits (Long i) {
+        if(i == null){
+            System.out.println("введено некорректное число");
+            return null;
+        }
+
+        StringBuilder dig = new StringBuilder("");
+
+        if(i < 0){
+            dig.append("-");
+            i = -i;
+        }
+
+        Integer len = calcDigitsOfLong(i);    //подсчитываем количесво разрядов
+        if(len == null) return null;
+        Integer[] arr = longToArray(i, len);    //преобразуем число в массив
+        if(arr == null) return null;
+
+        int n = 0;
+        int s = len-1;
+        while (n < len){
+            dig.append(arr[n]);
+            if(s%3 == 0) dig.append(" ");
+            n++;
+            s--;
+        }
+
+        return dig;
     }
 
     //преобразует число в массив Integer
