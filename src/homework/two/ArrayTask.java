@@ -1,5 +1,6 @@
 package homework.two;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import static java.lang.Math.abs;
@@ -145,6 +146,33 @@ public class ArrayTask {
             return getSumOfRangeElements(indBuff[0], indBuff[1]);
         }
         return null;
+    }
+
+    //создаем квадратный массив, заполняем бабочкой
+    public Integer[][] squareArray(int size){
+        Integer sqArr[][] = new Integer[size][size];
+        int axis = size/2;
+        if(size%2 != 0) axis++;
+        int end = size-1;
+
+        for (int i=0; i<axis; i++) {
+            for (int j = 0; j < axis; j++) {
+                if(i>j){
+                    sqArr[i][j] = 0;        //лево верх четверть
+                    sqArr[i][end-j] = 0;     //право верх четверть
+                    sqArr[end-i][j] = 0;     //лево низ четверть
+                    sqArr[end-i][end-j] = 0;  //право низ четверть
+                }
+                else {
+                    sqArr[i][j] = 1;        //лево верх четверть
+                    sqArr[i][end-j] = 1;     //право верх четверть
+                    sqArr[end-i][j] = 1;     //лево низ четверть
+                    sqArr[end-i][end-j] = 1;  //право низ четверть
+                }
+            }
+        }
+
+        return sqArr;
     }
 
 }
