@@ -1,5 +1,7 @@
 package homework.two;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -26,6 +28,23 @@ public class Main {
 
         System.out.println("********** task17: **********");
         System.out.println(sm.separationDigits(-11222333444555L));
+
+        System.out.println("********** task18: **********");
+        ArrayTask arr = new ArrayTask();
+        arr.setArrRandom();
+        System.out.println(Arrays.toString(arr.getArr()));
+        System.out.println(arr.getLastElement());
+
+        System.out.println("********** task19: **********");
+        arr.setArrRandom();
+        System.out.println(Arrays.toString(arr.getArr()));
+        System.out.println(Arrays.toString(arr.getElementsOfEvenPosition()));
+
+        System.out.println("********** task20: **********");
+        arr.setArrRandom();
+        System.out.println(Arrays.toString(arr.getArr()));
+        System.out.println(arr.getMaxIndexElement());
+
     }
 
 }
