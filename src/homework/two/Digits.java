@@ -2,9 +2,6 @@ package homework.two;
 
 public class Digits {
 
-    public Integer min = 50;
-    public Integer max = 70;
-
     //возвращает сумму цифр
     public Integer calcSumOfDigit(Long i){
         if(i == null){
@@ -33,6 +30,7 @@ public class Digits {
         return sum;
     }
 
+    // преобразует число в строку, группируя цифры по 3 через пробел
     public StringBuilder separationDigits (Long i) {
         if(i == null){
             System.out.println("введено некорректное число");
