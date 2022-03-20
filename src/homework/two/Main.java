@@ -43,7 +43,19 @@ public class Main {
         System.out.println("********** task20: **********");
         arr.setArrRandom();
         System.out.println(Arrays.toString(arr.getArr()));
-        System.out.println(arr.getMaxIndexElement());
+        System.out.println(arr.getMaxIndexOfFirstElement());
+        System.out.println(arr.getMaxIndexOfLastElement());
+
+        System.out.println("********** task21: **********");
+        arr.setArrRandom();
+        System.out.println(Arrays.toString(arr.getArr()));
+        System.out.println(arr.getSumOfRangeMinMaxElements());
+
+        System.out.println("********** task22: **********");
+        arr.setArrRandom();
+        System.out.println(Arrays.toString(arr.getArr()));
+        arr.reverseArr();
+        System.out.println(Arrays.toString(arr.getArr()));
 
     }
 
