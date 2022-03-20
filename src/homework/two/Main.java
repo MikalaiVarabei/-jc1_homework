@@ -43,8 +43,8 @@ public class Main {
         System.out.println("********** task20: **********");
         arr.setArrRandom();
         System.out.println(Arrays.toString(arr.getArr()));
-        System.out.println(arr.getMaxIndexOfFirstElement());
-        System.out.println(arr.getMaxIndexOfLastElement());
+        System.out.println("первый индекс: "+arr.getMaxIndexOfFirstElement());
+        System.out.println("последний индекс: "+arr.getMaxIndexOfLastElement());
 
         System.out.println("********** task21: **********");
         arr.setArrRandom();
@@ -56,6 +56,9 @@ public class Main {
         System.out.println(Arrays.toString(arr.getArr()));
         arr.reverseArr();
         System.out.println(Arrays.toString(arr.getArr()));
+
+        System.out.println("********** task23: **********");
+        Arrays.stream(arr.squareArray(3)).map(Arrays::toString).forEach(System.out::println);
 
     }
 
