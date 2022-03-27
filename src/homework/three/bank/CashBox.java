@@ -8,8 +8,8 @@ public class CashBox extends Banknote{
         this.quantity = quantity;
     }
 
-    public CashBox(int denomination, String country, int quantity) {
-        super(denomination, country);
+    public CashBox(int denomination, String country, String name, int quantity) {
+        super(denomination, country, name);
         this.quantity = quantity;
     }
 

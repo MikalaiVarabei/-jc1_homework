@@ -7,6 +7,13 @@ public class CashBoxStorage {
         cashBox = new CashBox[3];
     }
 
+    public CashBoxStorage(int quantity1, int quantity2, int quantity3) {
+        cashBox = new CashBox[3];
+        cashBox[0] = new CashBox(20, quantity1);
+        cashBox[1] = new CashBox(50, quantity2);
+        cashBox[2] = new CashBox(100, quantity3);
+    }
+
     public boolean addCash(int denomination, int quantity){
         int i;
         for(i=0; i < cashBox.length; i++){

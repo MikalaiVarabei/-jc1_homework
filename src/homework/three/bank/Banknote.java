@@ -3,15 +3,18 @@ package homework.three.bank;
 public class Banknote {
     private final int denomination;
     private final String country;
+    private final String name;
 
-    public Banknote(int denomination, String country) {
+    public Banknote(int denomination, String country, String name) {
         this.denomination = denomination;
         this.country = country;
+        this.name = name;
     }
 
     public Banknote(int denomination) {
         this.denomination = denomination;
-        country = "byn";
+        country = "BYN";
+        name = "руб.";
     }
 
     public int getDenomination() {
@@ -20,5 +23,9 @@ public class Banknote {
 
     public String getCountry() {
         return country;
+    }
+
+    public String getName() {
+        return name;
     }
 }
