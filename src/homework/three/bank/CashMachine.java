@@ -66,7 +66,7 @@ public class CashMachine {
         //копируем состояние хранилища
         if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
         boolean operation = mathCash.giveCashFromBuffer(giveSum);
-        //проверка кратности, максимальной суммы
+        //максимальной суммы, возможности выдачи суммы
         while ((giveSum>maxSumCash) || (operation == false)) {
             userDisplay.printMaxSum(maxSumCash);                                //максимальная сумма
             userDisplay.printUotOfMenu();
@@ -82,9 +82,7 @@ public class CashMachine {
         //userDisplay.printCashBuffer(mathCash.getCashBuff());
         userDisplay.printGiveCashBuffer(mathCash.getCashBuff());//купюры к выдаче
 
-
-
-        return false;
+        return true;
     }
 
     private boolean giveCashFromStorage() {
