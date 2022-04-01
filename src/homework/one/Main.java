@@ -24,7 +24,7 @@ public class Main {
 
         System.out.println("********** task7: **********");
         // длина, ширина, радиус
-        new One().task7(3, 4, 4);
+        new One().task7(3, 4, 3);
         System.out.println(" ");
 
         System.out.println("********** task8: **********");

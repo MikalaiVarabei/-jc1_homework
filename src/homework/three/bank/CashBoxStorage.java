@@ -3,8 +3,8 @@ package homework.three.bank;
 public class CashBoxStorage {
     private CashBox[] cashBox;
 
-    public CashBoxStorage() {
-        cashBox = new CashBox[3];
+    public CashBoxStorage(int len) {
+        cashBox = new CashBox[len];
     }
 
     public CashBoxStorage(int quantity1, int quantity2, int quantity3) {
@@ -23,7 +23,7 @@ public class CashBoxStorage {
                 break;
             }
             //пополняем сущесвующий номинал
-            if(denomination == cashBox[i].getDenomination()) {
+            if(denomination == cashBox[i].getNominal()) {
                 cashBox[i].changeQuantity(quantity);
                 break;
             }
@@ -32,7 +32,21 @@ public class CashBoxStorage {
         return true;
     }
 
+
+
     public CashBox[] getCashBox() {
         return cashBox;
+    }
+
+    public boolean changeCashBoxStorage(int nominal, int quantity) {
+        for (int i=0; i<cashBox.length; i++){
+            if(cashBox[i] == null) continue;
+            if(cashBox[i].getNominal() == nominal){
+                if(cashBox[i].getQuantity() < quantity) return false;
+                cashBox[i].changeQuantity(-quantity);
+                return true;
+            }
+        }
+        return false;
     }
 }

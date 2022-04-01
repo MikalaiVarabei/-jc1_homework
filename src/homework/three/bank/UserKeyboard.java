@@ -7,7 +7,7 @@ import static homework.three.bank.StateCashMachine.*;
 public class UserKeyboard {
     public int getDataInt() {
         Scanner scanner = new Scanner(System.in);
-        String numberPattern = "[0-9]{1,6}";
+        String numberPattern = "[0-9]{1,9}";
         String exitPattern = "[qQ]";
         int data=-1;
         for (;;){
@@ -26,7 +26,7 @@ public class UserKeyboard {
 
     public String getDataState() {
         Scanner scanner = new Scanner(System.in);
-        String pattern = "[iIfFtTqQ]";
+        String pattern = "[iIfFgGqQ]";
         String data;
         for (;;){
             if(scanner.hasNext(pattern)){

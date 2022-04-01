@@ -6,13 +6,15 @@ public class CashMachine {
     private final UserDisplay userDisplay;
     private final UserKeyboard userKeyboard;
     private final CashBoxStorage cashBoxStorage;
+    private final MathCash mathCash;
 
     private StateCashMachine stateCashMachine;
 
     public CashMachine() {
         this.userDisplay = new UserDisplay();
         this.userKeyboard = new UserKeyboard();
-        this.cashBoxStorage = new CashBoxStorage(10_000, 10_000, 10_000);
+        this.cashBoxStorage = new CashBoxStorage(1000, 100, 10);//конструктор 3-х номиналов
+        this.mathCash = new MathCash(cashBoxStorage.getCashBox().length);
     }
 
     public void work(){
@@ -26,16 +28,18 @@ public class CashMachine {
 
                 case INFO:  //отображаем количесво купюр
                     userDisplay.printCashBoxStorage(cashBoxStorage.getCashBox());
+                    userDisplay.printAllSum(mathCash.getSumCash(cashBoxStorage.getCashBox()));
                     stateCashMachine = START;
                     break;
 
                 case FILL_CASH: //добавляем деньги в банкомат
-                    while (fillCashBoxStorage()) ;
+                    while (fillCashBoxStorage());
                     stateCashMachine = START;
                     break;
 
-                case TAKE_CASH: //снимаем деньги
-                    stateCashMachine = START;//TODO: add take method
+                case GIVE_CASH: //снимаем деньги
+                    giveCashBoxStorage();
+                    stateCashMachine = START;
                     break;
 
                 case QUIT:
@@ -49,6 +53,48 @@ public class CashMachine {
         System.out.println("Выход");
     }
 
+    private boolean giveCashBoxStorage() {
+        int maxSumCash = mathCash.getSumCash(cashBoxStorage.getCashBox());
+        if(maxSumCash == 0) {
+            userDisplay.printNoCash();
+            return false;
+        }
+        userDisplay.printAllCachDenomination(cashBoxStorage.getCashBox());  //вывод купюр имеющиеся в банкомате
+        userDisplay.printMaxSum(maxSumCash);                                //вывод максимальной суммы
+        int giveSum = userKeyboard.getDataInt();
+        if (giveSum < 0) return false;
+        //копируем состояние хранилища
+        if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
+        boolean operation = mathCash.giveCashFromBuffer(giveSum);
+        //проверка кратности, максимальной суммы
+        while ((giveSum>maxSumCash) || (operation == false)) {
+            userDisplay.printMaxSum(maxSumCash);                                //максимальная сумма
+            userDisplay.printUotOfMenu();
+            giveSum = userKeyboard.getDataInt();
+            if (giveSum < 0) return false;
+            if(giveSum>maxSumCash) continue;
+            if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
+            operation = mathCash.giveCashFromBuffer(giveSum);
+            //userDisplay.printCashBuffer(mathCash.getCashBuff());
+        }
+
+        if(!giveCashFromStorage()) return false;    //TODO check error
+        //userDisplay.printCashBuffer(mathCash.getCashBuff());
+        userDisplay.printGiveCashBuffer(mathCash.getCashBuff());//купюры к выдаче
+
+
+
+        return false;
+    }
+
+    private boolean giveCashFromStorage() {
+        for(int i=0; i<cashBoxStorage.getCashBox().length; i++){
+            int nominal = mathCash.getCashBuff()[i].getNominal();
+            int quantity = mathCash.getCashBuff()[i].getGiveQuantity();
+            if(!cashBoxStorage.changeCashBoxStorage(nominal, quantity)) return false;
+        }
+        return true;
+    }
 
 
     private boolean fillCashBoxStorage() {
