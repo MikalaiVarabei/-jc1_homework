@@ -13,7 +13,7 @@ public class CashMachine {
     public CashMachine() {
         this.userDisplay = new UserDisplay();
         this.userKeyboard = new UserKeyboard();
-        this.cashBoxStorage = new CashBoxStorage(1000, 100, 10);//конструктор 3-х номиналов
+        this.cashBoxStorage = new CashBoxStorage(1000, 1000, 1000);//конструктор 3-х номиналов
         this.mathCash = new MathCash(cashBoxStorage.getCashBox().length);
     }
 
@@ -38,7 +38,7 @@ public class CashMachine {
                     break;
 
                 case GIVE_CASH: //снимаем деньги
-                    giveCashBoxStorage();
+                    giveCash();
                     stateCashMachine = START;
                     break;
 
@@ -53,7 +53,7 @@ public class CashMachine {
         System.out.println("Выход");
     }
 
-    private boolean giveCashBoxStorage() {
+    private boolean giveCash() {
         int maxSumCash = mathCash.getSumCash(cashBoxStorage.getCashBox());
         if(maxSumCash == 0) {
             userDisplay.printNoCash();
@@ -65,7 +65,11 @@ public class CashMachine {
         if (giveSum < 0) return false;
         //копируем состояние хранилища
         if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
-        boolean operation = mathCash.giveCashFromBuffer(giveSum);
+        boolean operation = mathCash.giveCashFromBuffer(giveSum);//TODO check the sum is a multiple 160, 180
+//        if(operation == false) {
+//            if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
+//            operation = mathCash.giveCashFromBuffer2(giveSum);
+//        }
         //максимальной суммы, возможности выдачи суммы
         while ((giveSum>maxSumCash) || (operation == false)) {
             userDisplay.printMaxSum(maxSumCash);                                //максимальная сумма
@@ -75,6 +79,12 @@ public class CashMachine {
             if(giveSum>maxSumCash) continue;
             if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
             operation = mathCash.giveCashFromBuffer(giveSum);
+
+//            if(operation == false) {
+//                if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
+//                operation = mathCash.giveCashFromBuffer2(giveSum);
+//
+//            }
             //userDisplay.printCashBuffer(mathCash.getCashBuff());
         }
 
