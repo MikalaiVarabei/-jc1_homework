@@ -72,6 +72,7 @@ public class CashMachine {
 //        }
         //максимальной суммы, возможности выдачи суммы
         while ((giveSum>maxSumCash) || (operation == false)) {
+            userDisplay.printNoOperation();
             userDisplay.printMaxSum(maxSumCash);                                //максимальная сумма
             userDisplay.printUotOfMenu();
             giveSum = userKeyboard.getDataInt();

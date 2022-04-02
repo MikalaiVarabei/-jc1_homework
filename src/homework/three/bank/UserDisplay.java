@@ -87,4 +87,9 @@ public class UserDisplay {
         System.out.println("В банкомате закончились деньги!");
         System.out.println(" ");
     }
+
+    public void printNoOperation() {
+        System.out.println("Операция по снятию денег не удалась");
+        System.out.println(" ");
+    }
 }
