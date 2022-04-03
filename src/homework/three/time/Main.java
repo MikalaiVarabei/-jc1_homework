@@ -10,6 +10,5 @@ public class Main {
         System.out.println(intervalTime_2.getStrTime());                                   //вывод данных
         System.out.println(intervalTime_2.getSecondsInterval());                           //вывод интервала
         System.out.println(intervalTime_1.compareTimeTo(intervalTime_2));                  //сравниваем
-
     }
 }
