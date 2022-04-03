@@ -43,7 +43,6 @@ public class IntervalTime {
 
     public long compareTimeTo(IntervalTime time){
         return (this.secondsInterval - time.secondsInterval);
-
     }
 
     public String getStrTime() {
