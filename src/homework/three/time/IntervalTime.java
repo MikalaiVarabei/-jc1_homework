@@ -36,8 +36,9 @@ public class IntervalTime {
         return hours;
     }
 
-    public boolean compareTime(IntervalTime time){
-        return ((this.seconds == time.seconds)&&(this.minutes == time.minutes)&&(this.hours == time.hours));
+    public Boolean ecualsTime(IntervalTime time){
+        if(time == null) return null;
+        return (this.secondsInterval == time.secondsInterval);
     }
 
     public long compareTimeTo(IntervalTime time){
