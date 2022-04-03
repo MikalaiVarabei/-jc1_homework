@@ -40,6 +40,10 @@ public class IntervalTime {
         return ((this.seconds == time.seconds)&&(this.minutes == time.minutes)&&(this.hours == time.hours));
     }
 
+    public long compareTimeTo(IntervalTime time){
+        return (this.secondsInterval - time.secondsInterval);
+    }
+
     public String getStrTime() {
         String sec = (seconds > 10) ? ("" + seconds) : ("0"+seconds);
         String min = (minutes > 10) ? ("" + minutes) : ("0"+minutes);

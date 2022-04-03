@@ -105,7 +105,6 @@ public class CashMachine {
         return true;
     }
 
-
     private boolean fillCashBoxStorage() {
         userDisplay.printCashBoxStorage(cashBoxStorage.getCashBox());
         userDisplay.printMenuFillStorage(cashBoxStorage.getCashBox());

@@ -9,6 +9,6 @@ public class Main {
         IntervalTime intervalTime_2 = new IntervalTime(15,28,35);   //в конструктор передаем часы, минуты, секунды
         System.out.println(intervalTime_2.getStrTime());                                   //вывод данных
         System.out.println(intervalTime_2.getSecondsInterval());                           //вывод интервала
-        System.out.println(intervalTime_1.compareTime(intervalTime_2));                    //сравниваем объекты
+        System.out.println(intervalTime_1.compareTimeTo(intervalTime_2));                  //сравниваем
     }
 }
