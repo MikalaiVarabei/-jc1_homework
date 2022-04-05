@@ -36,8 +36,8 @@ public class IntervalTime {
         return hours;
     }
 
-    public Boolean ecualsTime(IntervalTime time){
-        if(time == null) return null;
+    public boolean ecualsTime(IntervalTime time){
+        if(time == null) return false;
         return (this.secondsInterval == time.secondsInterval);
     }
 
