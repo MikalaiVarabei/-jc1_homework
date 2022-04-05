@@ -64,12 +64,8 @@ public class CashMachine {
         int giveSum = userKeyboard.getDataInt();
         if (giveSum < 0) return false;
         //копируем состояние хранилища
-        if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
+        if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO if error - check
         boolean operation = mathCash.giveCashFromBuffer(giveSum);//TODO check the sum is a multiple 160, 180
-//        if(operation == false) {
-//            if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
-//            operation = mathCash.giveCashFromBuffer2(giveSum);
-//        }
         //максимальной суммы, возможности выдачи суммы
         while ((giveSum>maxSumCash) || (operation == false)) {
             userDisplay.printNoOperation();
@@ -78,18 +74,13 @@ public class CashMachine {
             giveSum = userKeyboard.getDataInt();
             if (giveSum < 0) return false;
             if(giveSum>maxSumCash) continue;
-            if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
+            if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO if error - check
             operation = mathCash.giveCashFromBuffer(giveSum);
 
-//            if(operation == false) {
-//                if(!mathCash.setCashBuffer(cashBoxStorage)) return false;//TODO check error
-//                operation = mathCash.giveCashFromBuffer2(giveSum);
-//
-//            }
             //userDisplay.printCashBuffer(mathCash.getCashBuff());
         }
 
-        if(!giveCashFromStorage()) return false;    //TODO check error
+        if(!giveCashFromStorage()) return false;    //TODO if error - check
         //userDisplay.printCashBuffer(mathCash.getCashBuff());
         userDisplay.printGiveCashBuffer(mathCash.getCashBuff());//купюры к выдаче
 
