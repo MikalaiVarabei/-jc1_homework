@@ -1,38 +1,49 @@
 package homework.four;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Task26 {
     public static void main(String[] args) {
-        System.out.println("Введите текст со знаками перпинания, по завершению нажмите ENTER");
         System.out.println("Программа подсчитает общее количесво следующих знаков препинания:");
         System.out.println("точка (.), вопросительный знак (?), восклицательный знак (!), запятая (,), точка с запятой (;), двоеточие (:), тире (-)");
-        String txt = getDataState();
-        System.out.println("Введенный текст: "+txt);
+        System.out.println("Введите текст, по завершению нажмите ENTER");
 
-        int count = searchAndCountChars(txt, "[.?!,;:-]");
-        System.out.println("Всего знаков препинания в тексте: "+count);
+        String txt = getDataState();
+
+        int count = searchAndCountChars(txt);
+
+        System.out.println("Всего знаков препинания в тексте: ");
+        System.out.println("Первый способ: "+count);
+
+        count = searchAndCountChars2(txt, "[^.?!,;:-]");
+        System.out.println("Второй способ: "+count);
     }
 
-    private static int searchAndCountChars(String txt, String s) {
+    private static int searchAndCountChars(String txt) {
         int count=0;
         char symbol;
         for (int i=0; i<txt.length(); i++){
             symbol = txt.charAt(i);
-            if(symbol == '.' ||
-                symbol == '?' ||
-                symbol == '!' ||
-                symbol == ';' ||
-                symbol == ':' ||
-                symbol == '-' ||
-                symbol == ','
-
-            ){
-                count++;
+            switch (symbol){
+                case '.':
+                case '?':
+                case '!':
+                case ',':
+                case ';':
+                case ':':
+                case '-':
+                    count++;
+                    break;
             }
         }
 
         return count;
+    }
+
+    private static int searchAndCountChars2(String txt, String regex) {
+        return txt.replaceAll(regex, "").length();
     }
 
     private static  String getDataState() {
