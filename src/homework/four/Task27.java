@@ -17,9 +17,11 @@ public class Task27 {
 
     private static int searchAndCountWord(String txt) {
         if(txt == null) return 0;
+        //заменяем все кроме букв пробелами, заменяем множесвенные пробелы пробелами, удаляем пробелы в начале и конце строки
         String str = txt.replaceAll("[^a-zA-Zа-яА-Я]", " ").replaceAll(" +", " ").trim();
         //System.out.println("["+str+"]");
         if(str.length()==0) return 0;
+        //преобразуем строку в массив - разделитель пробел, возвращаем длину массива
         return str.split(" ").length;
     }
 
