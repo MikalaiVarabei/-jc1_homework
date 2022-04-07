@@ -1,14 +1,12 @@
 package homework.four;
 
-import java.sql.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task28 {
     public static void main(String[] args) {
         System.out.println("Задание 28");
         System.out.println("Введите текст, по завершению нажмите ENTER");
-        String txt = getDataState();
+        String txt = getInputData();
         System.out.println("Введенный текст: "+txt);
 
         txt = newText(txt);
@@ -33,7 +31,7 @@ public class Task28 {
         return str;
     }
 
-    private static  String getDataState() {
+    private static  String getInputData() {
         Scanner scanner = new Scanner(System.in);
         String data;
         data = scanner.nextLine();

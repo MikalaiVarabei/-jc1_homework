@@ -1,8 +1,6 @@
 package homework.four;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Task26 {
     public static void main(String[] args) {
@@ -10,7 +8,7 @@ public class Task26 {
         System.out.println("точка (.), вопросительный знак (?), восклицательный знак (!), запятая (,), точка с запятой (;), двоеточие (:), тире (-)");
         System.out.println("Введите текст, по завершению нажмите ENTER");
 
-        String txt = getDataState();
+        String txt = getInputData();
 
         int count = searchAndCountChars(txt);
 
@@ -46,7 +44,7 @@ public class Task26 {
         return txt.replaceAll(regex, "").length();
     }
 
-    private static  String getDataState() {
+    private static  String getInputData() {
         Scanner scanner = new Scanner(System.in);
         String data;
         data = scanner.nextLine();

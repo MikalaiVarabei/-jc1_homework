@@ -7,7 +7,7 @@ public class Task27 {
         System.out.println("Программа подсчитает общее количесво слов");
         System.out.println("Слова могут разделяться любым символом отличным от букв");
         System.out.println("Введите текст, по завершению нажмите ENTER");
-        String txt = getDataState();
+        String txt = getInputData();
         System.out.println("Введенный текст: "+txt);
 
         int count = searchAndCountWord(txt);
@@ -26,7 +26,7 @@ public class Task27 {
     }
 
 
-    private static  String getDataState() {
+    private static  String getInputData() {
         Scanner scanner = new Scanner(System.in);
         String data;
         data = scanner.nextLine();
