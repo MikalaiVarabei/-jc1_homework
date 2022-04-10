@@ -27,7 +27,7 @@ public class Task29 {
         while (str.find()) {
 //            System.out.println(txt);
 //            System.out.println(getPointerString(str.start()));
-            out += getCarsOfRange(txt, str.start()-1, str.end()-1); //-1 для исключения пробела
+            out += getCarsOfRange(txt, str.start()+1, str.end()-1); //1 для исключения пробела
             out += " ";
         }
         return out;
