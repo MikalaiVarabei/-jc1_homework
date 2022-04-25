@@ -1,5 +1,5 @@
 package homework.five.technics;
 
-interface PowerCord {
+public interface PowerCord {
     void connectToPower();
 }
