@@ -1,9 +1,9 @@
 package homework.five.factory;
 
 public class Factory {
-    WorkerInterest operator;
-    WorkerHourly security;
-    WorkerMixed chief;
+    Worker operator;
+    Worker security;
+    Worker chief;
 
     public Factory() {
         operator = new WorkerInterest("работник-1", "оператор станка");
