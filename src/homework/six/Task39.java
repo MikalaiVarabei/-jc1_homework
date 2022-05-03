@@ -15,7 +15,7 @@ public class Task39 {
 
     static void removeGrade(List<Integer> list, int lim){
         for(int i=0; i<list.size(); i++){
-            if (list.get(i) > lim) continue;
+            if ((list.get(i) == null)||(list.get(i) > lim)) continue;
             list.remove(i);
             i--;
         }
