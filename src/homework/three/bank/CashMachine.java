@@ -38,7 +38,7 @@ public class CashMachine {
                     break;
 
                 case GIVE_CASH: //снимаем деньги
-                    giveCash();
+                    while(giveCash());
                     stateCashMachine = START;
                     break;
 
