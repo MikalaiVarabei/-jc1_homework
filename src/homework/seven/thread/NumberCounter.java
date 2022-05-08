@@ -71,4 +71,11 @@ public class NumberCounter {
     public String getMaxRes() {
         return numbers+", maximum: "+max;
     }
+
+    @Override
+    public String toString() {
+        return "NumberCounter{" +
+                "numbers=" + numbers +
+                '}';
+    }
 }
