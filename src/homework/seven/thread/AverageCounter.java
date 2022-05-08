@@ -37,7 +37,7 @@ public class AverageCounter {
         return  this;
     }
 
-    public Double getAverage() {
+    public Double getAverage(){
         return average;
     }
 }
