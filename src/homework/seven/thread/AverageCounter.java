@@ -13,10 +13,10 @@ public class AverageCounter {
         average=null;
     }
 
-    public AverageCounter addNumRandom(int size){
+    public AverageCounter addNumRandom(int bound, int size){
         Random rand = new Random();
         for(int i=0; i<size; i++){
-            numbers.add(i, rand.nextInt(100));//
+            numbers.add(i, rand.nextInt(bound));//
         }
         return this;
     }
