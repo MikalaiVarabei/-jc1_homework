@@ -13,9 +13,12 @@ public class Main {
         task53();
         Thread.sleep(1000);
         task54();
+        Thread.sleep(1000);
+        task55();
     }
 
     private static void task52(){
+        System.out.println();
         System.out.println("Задание 52.");
         AveragePrint average = new AveragePrint();
         for (int i=0; i<10; i++){
@@ -25,6 +28,7 @@ public class Main {
     }
 
     private static void task53(){
+        System.out.println();
         System.out.println("Задание 53.");
         MaxNumPrint max = new MaxNumPrint();
         for (int i=0; i<10; i++){
@@ -34,12 +38,23 @@ public class Main {
     }
 
     private static void task54(){
+        System.out.println();
         System.out.println("Задание 54.");
         SaveToFileNumPrint saveToFileNum = new SaveToFileNumPrint();
         for (int i=0; i<5; i++){
             new Thread(saveToFileNum).start();
         }
         System.out.println("Задание 54. END");
+    }
+
+    private static void task55(){
+        System.out.println();
+        System.out.println("Задание 55.");
+        NameThreadPrint threadPrint = new NameThreadPrint();
+        for (int i=0; i<10; i++){
+            new Thread(threadPrint).start();
+        }
+        System.out.println("Задание 55. END");
     }
 }
 
@@ -97,6 +112,31 @@ class SaveToFileNumPrint implements Runnable{
                             .getNumbers()
                             .toString());
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class NameThreadPrint implements Runnable{
+    private static int count=0;
+    private String name;
+
+    public synchronized NameThreadPrint printNameThread(){
+        name = "thread #"+count++;
+        System.out.println(name);
+        return this;
+    }
+
+    public synchronized NameThreadPrint sleep(long i) throws InterruptedException {
+        Thread.sleep(i);
+        return this;
+    }
+
+    @Override
+    public void run() {
+        try {
+            printNameThread().sleep(2000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
