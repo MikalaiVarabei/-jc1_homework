@@ -127,7 +127,7 @@ class NameThreadPrint implements Runnable{
         return this;
     }
 
-    public NameThreadPrint sleep(long i) throws InterruptedException {
+    public synchronized NameThreadPrint sleep(long i) throws InterruptedException {
         Thread.sleep(i);
         return this;
     }
